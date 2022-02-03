@@ -26,7 +26,10 @@ def main():
     predicted_numbers = predict_numbers(rois)
     board_num = np.array(predicted_numbers).astype("uint8").reshape(9, 9)
 
-    solve_board(board_num)
+    if solve(board_num):
+        print_board(board_num)
+    else:
+        print("No solution")
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
